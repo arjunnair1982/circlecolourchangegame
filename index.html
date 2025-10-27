@@ -16,31 +16,49 @@
             font-family: Arial, sans-serif;
         }
 
-        .circle {
+        .container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .shape {
             width: 200px;
             height: 200px;
-            background-color: #4CAF50;
-            border-radius: 50%;
             cursor: pointer;
             transition: background-color 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .circle:hover {
+        .circle {
+            background-color: #4CAF50;
+            border-radius: 50%;
+        }
+
+        .square {
+            background-color: #2196F3;
+            border-radius: 10px;
+        }
+
+        .shape:hover {
             transform: scale(1.05);
             transition: transform 0.2s ease;
         }
 
-        .circle:active {
+        .shape:active {
             transform: scale(0.95);
         }
     </style>
 </head>
 <body>
-    <div class="circle" id="colorCircle"></div>
+    <div class="container">
+        <div class="shape circle" id="colorCircle"></div>
+        <div class="shape square" id="colorSquare"></div>
+    </div>
 
     <script>
         const circle = document.getElementById('colorCircle');
+        const square = document.getElementById('colorSquare');
 
         function getRandomColor() {
             const r = Math.floor(Math.random() * 256);
@@ -51,6 +69,10 @@
 
         circle.addEventListener('click', function() {
             circle.style.backgroundColor = getRandomColor();
+        });
+
+        square.addEventListener('click', function() {
+            square.style.backgroundColor = getRandomColor();
         });
     </script>
 </body>
